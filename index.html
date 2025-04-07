@@ -14,30 +14,37 @@
       background-position: center;
       background-repeat: no-repeat;
       height: 100vh;
-      color: white;
-      text-shadow: 2px 2px 4px #000;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+      color: white;
+    }
+
+    .message-box {
+      border: 4px solid black;
+      background-color: rgba(0, 0, 0, 0.5); /* slight transparent background */
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      max-width: 90%;
     }
 
     h1 {
       font-size: 3em;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.5em;
     }
 
     p {
       font-size: 1.5em;
       margin: 0;
-      max-width: 90%;
     }
   </style>
 </head>
 <body>
-  <h1>🎉 Happy Birthday Pookiee !! 🎂</h1>
-  <p>Wishing you a day filled with love, laughter, and unforgettable memories. 🎈</p>
+  <div class="message-box">
+    <h1>🎉 Happy Birthday Pookiee !! 🎂</h1>
+    <p>Wishing you a day filled with love, laughter, and unforgettable memories. 🎈</p>
+  </div>
 </body>
 </html>
-
