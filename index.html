@@ -1,119 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Open Birthday Card</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday!</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
+      background-image: url('flower.jpg'); /* Make sure flower.jpg is in the repo root */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       height: 100vh;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      background: url('flower.jpg') no-repeat center/cover;
-      overflow: hidden;
+      justify-content: center;
+      text-align: center;
     }
 
     .card {
-      width: 300px;
-      height: 400px;
-      perspective: 1000px;
-      position: relative;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border: 5px solid black;
+      border-radius: 20px;
+      max-width: 90%;
     }
 
-    .card-top {
-      width: 100%;
-      height: 50%;
-      background: #fff;
-      border: 3px solid black;
-      border-bottom: none;
-      border-radius: 10px 10px 0 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform-origin: top center;
-      transform: rotateX(0deg);
-      transition: transform 0.3s ease-out;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
+
+    p {
       font-size: 1.5em;
-      font-weight: bold;
-    }
-
-    .card-bottom {
-      width: 100%;
-      height: 50%;
-      background: #fff;
-      border: 3px solid black;
-      border-top: none;
-      border-radius: 0 0 10px 10px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.1em;
-      color: #333;
+      margin: 0;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="card-top" id="cardTop">🎉 Swipe down to open</div>
-    <div class="card-bottom">
-      Hey Pookiee! 💖<br />Wishing you the happiest birthday ever! May your year be full of joy, laughter, and all the things you love. 🎂🎈
-    </div>
+    <h1>🎉 Happy Birthday Pookiee !! 🎂</h1>
+    <p>Wishing you a day filled with love, laughter, and unforgettable memories. 🎈</p>
   </div>
-
-  <script>
-    const cardTop = document.getElementById('cardTop');
-    let isDragging = false;
-    let startY = 0;
-
-    cardTop.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startY = e.clientY;
-    });
-
-    cardTop.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      startY = e.touches[0].clientY;
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const diff = e.clientY - startY;
-      const angle = Math.min(Math.max(diff / 3, 0), 180);
-      cardTop.style.transform = `rotateX(${angle}deg)`;
-    });
-
-    document.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      const diff = e.touches[0].clientY - startY;
-      const angle = Math.min(Math.max(diff / 3, 0), 180);
-      cardTop.style.transform = `rotateX(${angle}deg)`;
-    });
-
-    document.addEventListener('mouseup', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      cardTop.style.transform = 'rotateX(180deg)';
-    });
-
-    document.addEventListener('touchend', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      cardTop.style.transform = 'rotateX(180deg)';
-    });
-  </script>
 </body>
 </html>
